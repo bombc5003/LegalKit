@@ -79,5 +79,5 @@ Development requests welcome — office automation · forensic tools · legal ai
 
 ---
 
-© 2026 박병진 · Byungjin Park · Ddalkkak Company (예정)  
+© 2026 박병진 · Byungjin Park  
 All rights reserved. Unauthorized redistribution prohibited.
