@@ -10,7 +10,7 @@
 
 | Version | File | Platform |
 |---------|------|----------|
-| 🇰🇷 딸깍 법무킷 v6.9.3 | `딸깍_법무킷_v6.9.3.exe` | Windows 10/11 |
+| 🇰🇷 법무킷 v6.9.3 | `딸깍_법무킷_v6.9.3.exe` | Windows 10/11 |
 | 🌐 ClickLegalKit v6.9.0 | `ClickLegalKit_v6.9.0.exe` | Windows 10/11 |
 
 > 설치 불필요 · No installation required — double-click and run.
@@ -20,7 +20,7 @@
 ## Features · 기능
 
 - **병합기 · Merger** — PDF + 이미지(JPG/PNG/TIFF) 일괄 병합, 19.5MB 자동 분할
-- **딸깍찾기 · Fuzzy Find** — 오타 허용 파일명 퍼지 검색
+- **퍼지찾기 · Fuzzy Find** — 오타 허용 파일명 퍼지 검색
 - **증거목록 · Evidence List** — 호증 목록 자동 생성 (TXT · CSV · 클립보드)
 - **판례수집 · Case Collector** — 법제처 Open API 키워드+본문 2단계 수집
 - **호증부여기 · Label Maker** — 갑·을·병·정 파일명 자동 부여 및 리네임
@@ -59,7 +59,7 @@ After purchase, send your order screenshot to receive a license key.
 |------|------|------|
 | 코드를 모를는 사람의 코딩 | EN ES DE FR PT IT NL AR JA | [Amazon Kindle](https://www.amazon.com/dp/B0GXL8WPTT) |
 | 클로드AI 코웍모드 입문서 | ES PT DE FR JA EN | [Amazon Kindle](https://www.amazon.com/dp/B0GYPMT5L3) |
-| 소년 클로드, 몸을 얻다 | EN ES DE JA | [Amazon Kindle](https://www.amazon.com/dp/B0GYL6M1CC) |
+| 클로드, 몸을 얻다 | EN ES DE JA | [Amazon Kindle](https://www.amazon.com/dp/B0GYL6M1CC) |
 | 코드를 모를는 사람의 코딩 (한국어) | KR | [부크크](https://www.bookk.co.kr/book/view/482300) · [YES24](https://www.yes24.com/product/goods/188657828) |
 | 클로드AI 코웍모드 입문서 (한국어) | KR | [부크크](https://www.bookk.co.kr/book/view/483796) |
 
