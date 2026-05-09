@@ -1,4 +1,4 @@
-# ClickLegalKit · 딸깍 법무킷
+# ClickLegalKit · 법무킷
 
 **PDF merger + Evidence organizer + Case collector for Korean legal self-representation**
 
