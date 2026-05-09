@@ -57,7 +57,7 @@ After purchase, send your order screenshot to receive a license key.
 
 | 도서 | 언어 | 링크 |
 |------|------|------|
-| 코딩을 몰라도 코딩한다 | EN ES DE FR PT IT NL AR JA | [Amazon Kindle](https://www.amazon.com/dp/B0GXL8WPTT) |
+| 코드를 모를는 사람의 코딩 | EN ES DE FR PT IT NL AR JA | [Amazon Kindle](https://www.amazon.com/dp/B0GXL8WPTT) |
 | 클로드AI 코웍모드 입문서 | ES PT DE FR JA EN | [Amazon Kindle](https://www.amazon.com/dp/B0GYPMT5L3) |
 | 소년 클로드, 몸을 얻다 | EN ES DE JA | [Amazon Kindle](https://www.amazon.com/dp/B0GYL6M1CC) |
 | 코드를 모를는 사람의 코딩 (한국어) | KR | [부크크](https://www.bookk.co.kr/book/view/482300) · [YES24](https://www.yes24.com/product/goods/188657828) |
