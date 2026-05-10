@@ -87,7 +87,7 @@ For continued use after that, contact us with your machine ID — we'll handle i
 | C-2026-021650 | 웹캡처 | ClickWebCapture | 2026-05-06 |
 | C-2026-022057 | 오토샷 | autoshot | 2026-05-07 |
 | **C-2026-022058** | **법무킷** | **LegalKit** | **2026-05-07** ← 본 프로그램 |
-| C-2026-022279 | 녹취록생성기 | ClickTalkScript | 2026-05-08 |
+| C-2026-022279 | 녹취록생성기 | ClickTalkScript | 2026-05-08 |<-병합됨 |
 
 전건 컴퓨터프로그램저작물 > 응용프로그램 > 사무관리 분류로 정식 등록.
 저작권법 제53조에 따라 저작자·창작연월일이 법적으로 추정됩니다.
