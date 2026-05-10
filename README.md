@@ -1,83 +1,133 @@
-# ClickLegalKit · 법무킷
+# LegalKit · 법무킷
 
-**PDF merger + Evidence organizer + Case collector for Korean legal self-representation**
+**PDF merger + Evidence organizer + Case collector + Voice transcriber for Korean legal self-representation**
 
-한국 나홀로소송 전용 PDF 병합기 · 증거목록 · 판례수집 통합 도구
+한국 나홀로소송 전용 통합 도구 — PDF 병합기 · 증거목록 · 판례수집 · 호증부여기 · 녹취록
 
 ---
 
 ## Download · 다운로드
 
-| Version | File | Platform |
-|---------|------|----------|
-| 🇰🇷 법무킷 v6.9.3 | `딸깍_법무킷_v6.9.3.exe` | Windows 10/11 |
-| 🌐 ClickLegalKit v6.9.0 | `ClickLegalKit_v6.9.0.exe` | Windows 10/11 |
+v7.0.8부터 Inno Setup 인스톨러 형태로 배포됩니다. GPU 사양에 따라 Lite / Pro 트랙을 선택하세요.
 
-> 설치 불필요 · No installation required — double-click and run.
+| Track | Version | File | Size | GPU |
+| --- | --- | --- | --- | --- |
+| 🇰🇷 Lite KR | v7.0.4 | `LegalKit_Lite_KR_v7.0.4_setup.exe` | 291 MB | 불요 |
+| 🌐 Lite EN | v7.0.4 | `LegalKit_Lite_EN_v7.0.4_setup.exe` | 291 MB | not required |
+| 🇰🇷 Pro KR | v7.0.8 | `LegalKit_Pro_KR_v7.0.8_setup.exe` | 627 MB | NVIDIA RTX 권장 |
+| 🌐 Pro EN | v7.0.8 | `LegalKit_Pro_EN_v7.0.8_setup.exe` | 627 MB | NVIDIA RTX recommended |
 
----
+> 인스톨러 더블클릭 → Program Files 정식 설치 · 시작메뉴·바탕화면 바로가기 자동 등록 · 제어판 정식 언인스톨
+> Double-click installer → installs to Program Files · auto Start Menu / Desktop shortcuts · uninstalls cleanly via Control Panel
 
-## Features · 기능
-
-- **병합기 · Merger** — PDF + 이미지(JPG/PNG/TIFF) 일괄 병합, 19.5MB 자동 분할
-- **퍼지찾기 · Fuzzy Find** — 오타 허용 파일명 퍼지 검색
-- **증거목록 · Evidence List** — 호증 목록 자동 생성 (TXT · CSV · 클립보드)
-- **판례수집 · Case Collector** — 법제처 Open API 키워드+본문 2단계 수집
-- **호증부여기 · Label Maker** — 갑·을·병·정 파일명 자동 부여 및 리네임
-- **홍보 · Promo** — 개발자 출판 도서 · 개발 의뢰 안내
+📥 [Latest release · 최신 릴리스](https://github.com/bombc5003/LegalKit/releases/latest)
 
 ---
 
-## License · 라이센스 (Early Adopter Only)
+## Track Comparison · 트랙 비교
 
-병합기 무료 횟수 제한 해제 — **평생 라이센스** 획득 방법:
+| | Lite (v7.0.4) | Pro (v7.0.8) |
+|---|---|---|
+| Engine · 엔진 | faster-whisper CPU INT8 | faster-whisper GPU float16 |
+| 30-min audio · 30분 음성 | 약 8분 (~3.7×) | 약 1~2분 (~20×) |
+| GPU | 불요 / not required | NVIDIA RTX 4070급 권장 |
+| CUDA Toolkit | 불요 | 불요 (cuBLAS·cuDNN 자체 동봉) |
+| Installer Size | 291 MB | 627 MB |
 
-### 🇰🇷 한글판
-| 조건 | 내용 |
-|------|------|
-| ① | **코드를 모르는 사람의 코딩** 1권 구매 ($5) |
-| ② | KDP 책 아무 2권 조합 구매 |
+> Pro 트랙은 NVIDIA cuBLAS · cuDNN 라이브러리를 동봉합니다. 사용자가 별도 CUDA Toolkit을 설치할 필요가 없습니다.
+> Pro track ships with NVIDIA cuBLAS and cuDNN — no separate CUDA Toolkit installation required.
 
-### 🌐 English Version
-| Option | Detail |
-|--------|--------|
-| ① | Buy **Coding Without Knowing Code** ($5) — 1 book |
-| ② | Buy any 2 books from KDP |
+---
 
-> ★ **Early adopter only** — this deal ends after the launch phase. Once it's gone, it's gone.
+## Features · 기능 (7탭 통합 구조)
 
-구매 후 주문 캡처를 이메일로 보내주시면 라이센스 키를 발급해 드립니다.  
-After purchase, send your order screenshot to receive a license key.
+| 탭 · Tab | 기능 · Function |
+| --- | --- |
+| 📎 병합기 · Merger | PDF + 이미지(JPG/PNG/TIFF) 일괄 병합 · 전자소송 19.5 MB 자동 분할 |
+| 🔍 퍼지찾기 · Fuzzy Find | 오타 허용 파일명 퍼지 검색 |
+| 📋 증거목록 · Evidence List | 호증 목록 자동 생성 (TXT · CSV · 클립보드) |
+| ⚖️ 판례수집 · Case Collector | 법제처 Open API 키워드 + 본문 2단계 수집 |
+| 🏷️ 호증부여기 · Label Maker | 갑·을·병·정 파일명 자동 부여 및 리네임 |
+| 🎙 녹취록 · Transcriber | 음성/영상 → 텍스트 자동 변환 (입력 11종 / 출력 5종 / 5개 언어) |
+| 📣 홍보 · Promo | 개발자 출판 도서 · 개발 의뢰 안내 |
+
+### 녹취록 입출력
+
+- **입력 11종** — m4a · mp3 · wav · ogg · flac · mp4 · mkv · mov · avi · aac · wma
+- **출력 5종** — txt · srt · vtt · tsv · json
+- **언어** — 자동 감지 / 한국어 / 영어 / 일본어 / 중국어
+- **통합 라이선스 카운터** — 병합 + 녹취 합산 5회. 기존 라이선스 키 그대로 사용
+
+---
+
+## Security · 보안
+
+- **Ed25519 비대칭 서명** — 시크릿 노출에도 위조 키 발급 불가
+- **license.json HMAC 봉인** — 다른 PC 복사 시 자동 무효
+- **stdout/stderr None 가드** — PyInstaller windowed 빌드 호환
+
+---
+
+## License · 라이선스
+
+병합기 · 녹취록 합산 **5회 무료** 사용 가능합니다.
+이후 추가 사용을 원하시면 머신ID와 함께 아래로 연락 주세요. 개별 안내드립니다.
+
+5 free uses combined (merger + transcriber).
+For continued use after that, contact us with your machine ID — we'll handle it case by case.
 
 📧 bc5103@naver.com
 
 ---
 
+## Korean Copyright Registration · 한국저작권위원회 등록
+
+| 등록번호 · Reg. No. | 한국어 제호 | English Title | 등록일 · Date |
+| --- | --- | --- | --- |
+| C-2026-021650 | 웹캡처 | ClickWebCapture | 2026-05-06 |
+| C-2026-022057 | 오토샷 | autoshot | 2026-05-07 |
+| **C-2026-022058** | **법무킷** | **LegalKit** | **2026-05-07** ← 본 프로그램 |
+| C-2026-022279 | 녹취록생성기 | ClickTalkScript | 2026-05-08 |
+
+전건 컴퓨터프로그램저작물 > 응용프로그램 > 사무관리 분류로 정식 등록.
+저작권법 제53조에 따라 저작자·창작연월일이 법적으로 추정됩니다.
+
+> 무단 복제·재배포·소스 변형 후 재배포는 저작권법에 따라 제한됩니다.
+> Unauthorized redistribution or modification prohibited under Korean Copyright Act.
+
+---
+
+## NVIDIA Redistributable Notice
+
+The Pro installer includes NVIDIA cuBLAS and cuDNN libraries, redistributed under the **NVIDIA CUDA Toolkit EULA Section 2.6**.
+
+---
+
 ## Books · 출판 도서
 
-| 도서 | 언어 | 링크 |
-|------|------|------|
-| 코드를 모를는 사람의 코딩 | EN ES DE FR PT IT NL AR JA | [Amazon Kindle](https://www.amazon.com/dp/B0GXL8WPTT) |
-| 클로드AI 코웍모드 입문서 | ES PT DE FR JA EN | [Amazon Kindle](https://www.amazon.com/dp/B0GYPMT5L3) |
+| 도서 · Book | 언어 · Languages | 링크 · Link |
+| --- | --- | --- |
+| 코드를 모르는 사람의 코딩 | EN ES DE FR PT IT NL AR JA | [Amazon Kindle](https://www.amazon.com/dp/B0GXL8WPTT) |
+| 클로드AI 코웍모드 입문서 | EN ES PT DE FR JA | [Amazon Kindle](https://www.amazon.com/dp/B0GYPMT5L3) |
 | 클로드, 몸을 얻다 | EN ES DE JA | [Amazon Kindle](https://www.amazon.com/dp/B0GYL6M1CC) |
-| 코드를 모를는 사람의 코딩 (한국어) | KR | [부크크](https://www.bookk.co.kr/book/view/482300) · [YES24](https://www.yes24.com/product/goods/188657828) |
+| 코드를 모르는 사람의 코딩 (한국어) | KR | [부크크](https://www.bookk.co.kr/book/view/482300) · [YES24](https://www.yes24.com/product/goods/188657828) |
 | 클로드AI 코웍모드 입문서 (한국어) | KR | [부크크](https://www.bookk.co.kr/book/view/483796) |
 
-Search **"Vibe Toolsmith"** on Amazon Kindle
+Search **"Vibe Toolsmith"** on Amazon Kindle.
 
 ---
 
 ## Contact · 연락처
 
-**박병진 · Byungjin Park**  
-📧 bc5103@naver.com  
-📱 010-2272-7030  
+**박병진 · Byungjin Park**
+📧 bc5103@naver.com
+📱 010-2272-7030
 🔗 [github.com/bombc5003](https://github.com/bombc5003)
 
-개발 의뢰 환영 — 사무 자동화 · 포렌식 계열 · 법무 보조 도구 전문  
+개발 의뢰 환영 — 사무 자동화 · 포렌식 계열 · 법무 보조 도구 전문
 Development requests welcome — office automation · forensic tools · legal aid software
 
 ---
 
-© 2026 박병진 · Byungjin Park  
+© 2026 박병진 · Byungjin Park
 All rights reserved. Unauthorized redistribution prohibited.
