@@ -1,0 +1,35 @@
+@echo off
+chcp 65001 > nul
+pushd "%~dp0"
+title LegalKit Lite EN v7.47 build (onefile, GPU+CPU)
+set TAG=EN
+
+if not exist "_temp" mkdir "_temp"
+set "TEMP=%CD%\_temp"
+set "TMP=%CD%\_temp"
+
+echo Step 1 of 4 - pip install base dependencies
+python -m pip install pyinstaller pyinstaller-hooks-contrib pillow pypdf2 tkinterdnd2 cryptography imageio-ffmpeg numpy faster-whisper ctranslate2 nvidia-cublas-cu12 nvidia-cudnn-cu12 --upgrade --quiet
+if errorlevel 1 ( echo ERROR pip failed & popd & pause & exit /b 1 )
+
+echo Step 2 of 4 - copy NVIDIA DLLs
+if not exist "_nv_dlls" (
+    echo _nv_dlls 없음 - v711 폴더에서 복사 중...
+    xcopy /E /I /Q "..\install_legalkit_v711\_nv_dlls" "_nv_dlls"
+)
+python "_resolve_nvidia.py"
+if errorlevel 1 ( echo ERROR DLL copy failed & popd & pause & exit /b 1 )
+
+echo Step 3 of 4 - PyInstaller onefile EXE build
+python -m PyInstaller --noconfirm --onefile --windowed --name "LegalKit_%TAG%" --distpath "payload_lite_%TAG%" --workpath "build_lite" --specpath "." --hidden-import tkinterdnd2 --collect-all tkinterdnd2 --hidden-import cryptography --collect-submodules cryptography --hidden-import faster_whisper --collect-all faster_whisper --hidden-import ctranslate2 --collect-all ctranslate2 --collect-binaries ctranslate2 --hidden-import imageio_ffmpeg --collect-all imageio_ffmpeg --hidden-import numpy --hidden-import tokenizers --exclude-module torch --exclude-module torchvision --exclude-module torchaudio --exclude-module llvmlite --add-binary "_nv_dlls/cublas/*.dll;." --add-binary "_nv_dlls/cudnn/*.dll;." "LegalKit_%TAG%_v747.py"
+if errorlevel 1 ( echo ERROR PyInstaller failed & popd & pause & exit /b 1 )
+
+echo Step 4 of 4 - Inno Setup compile
+set "ISCC=C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
+if not exist "%ISCC%" ( echo ERROR Inno Setup not found & popd & pause & exit /b 1 )
+"%ISCC%" "LegalKit_Lite_%TAG%.iss"
+if errorlevel 1 ( echo ERROR Inno Setup failed & popd & pause & exit /b 1 )
+
+echo DONE %CD%\installer_out\LegalKit_Lite_EN_v7.47_setup.exe
+popd
+pause
